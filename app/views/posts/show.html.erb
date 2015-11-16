@@ -1,0 +1,26 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<% unless @post.comments.empty? %>
+    <br>
+    <h3>Комментарии</h3>
+    <% @post.comments.each do |comment| %>
+        <p><%= comment.body %></p>
+        <p><%= link_to "Удалить", [@post, comment], method: :delete %></p>
+    <% end %>
+    <br>
+<% end %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+<br>
+<%= link_to 'New Comment', new_post_comment_path(@post) %>
