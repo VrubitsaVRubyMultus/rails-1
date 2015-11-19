@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :welcomes
+  get "welcome/index"
   resources :profiles
   resources :users
   resources :posts do
