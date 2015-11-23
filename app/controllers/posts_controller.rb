@@ -1,5 +1,12 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :check_author, only: [:edit, :update, :destroy]
+
+  def unpublished
+    @posts = Post.reverse_order(:desc).unpublished.all
+    render :index
+  end
 
   # GET /posts
   # GET /posts.json
@@ -65,5 +72,11 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :body)
+    end
+    def check_author
+      unless current_user.author_of?(@post)
+        flash[:alert] = " ты не аффтар!"
+        redirect_to :root
+      end
     end
 end
