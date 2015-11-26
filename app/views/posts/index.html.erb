@@ -2,6 +2,9 @@
 
 <h1>Listing Posts</h1>
 <%= link_to "Черновики", unpublished_posts_path %>
+<br>
+<%= link_to "Посты", posts_path %>
+
 <table>
   <thead>
 
@@ -19,7 +22,7 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
+        <td><%= link_with_icon "pencil-square" 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

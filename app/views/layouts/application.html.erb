@@ -47,7 +47,7 @@
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
   <br>
-  <h1><%= link_to 'No site here!!!', welcome_index_path %></h1>
+  <h2><%= link_with_icon "times", welcome_index_path, title: 'No site here!!!'  %></h2>
   <br><br>
 
  <!--    <div class="navbar navbar-default navbar-static-top">
@@ -76,12 +76,11 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
- <!--            <h3>Sidebar</h3>
+           <h4>Разделы НЕ сайта</h4>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li> -->
+              <li class="nav-header"></li>
+              <li><%= link_to "посты", posts_path  %></li>
+              <li><%= link_to "категории", categories_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

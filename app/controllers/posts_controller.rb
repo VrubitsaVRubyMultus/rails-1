@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :check_author, only: [:edit, :update, :destroy]
+  before_action :check_author, only: [:edit, :update,:destroy]
 
   def unpublished
     @posts = Post.reverse_order(:desc).unpublished.all
