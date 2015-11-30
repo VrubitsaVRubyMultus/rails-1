@@ -39,12 +39,13 @@
   <body>
   <% if user_signed_in? %>
     <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+    <%= link_with_icon "user-times" , destroy_user_session_path, title: "Выход", :method => :delete %>
+    <%= link_with_icon "times-cirkle-o", welcome_index_path, title: "назад"%>   
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
   <br>
-  <h2><%= link_with_icon "times", welcome_index_path, title: 'No site here!!!'  %></h2>
+  <h2><%= link_with_icon "times", admin_welcome_index_path, title: 'No', size: 2  %></h2>
   <br><br>
 
  <!--    <div class="navbar navbar-default navbar-static-top">
@@ -77,7 +78,8 @@
             <ul class="nav nav-list">
               <li class="nav-header"></li>
               <li><%= link_to "посты", posts_path  %></li>
-              <li><%= link_to "категории", categories_path %></li>
+              <li><%= link_to "категории", admin_categories_path %></li>
+              <li><%= link_to "юзеры", admin_users_path %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

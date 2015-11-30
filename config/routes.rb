@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :users
   end
+  get "admin/welcome/index"
   get "welcome/index"
   resources :profiles
   resources :users

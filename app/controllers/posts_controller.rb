@@ -74,7 +74,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body)
     end
     def check_author
-      unless current_user.author_of?(@post)
+      if !current_user.author_of?(@post) && !current_user.admin?
         flash[:alert] = " ты не аффтар!"
         redirect_to :root
       end

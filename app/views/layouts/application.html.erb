@@ -41,13 +41,13 @@
     <span>Здравствуйте, <%= current_user.email %></span>
     <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
               <% if current_user && current_user.admin? %>
-                <%= link_to 'Админка', admin_categories_path %>
+                <%= link_to 'Админка', admin_welcome_index_path %>
               <% end %>
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>
   <br>
-  <h2><%= link_with_icon "times", welcome_index_path, title: 'No site here!!!'  %></h2>
+  <h2><%= link_with_icon "times", welcome_index_path, title: 'No', size: 2  %></h2>
   <br><br>
 
  <!--    <div class="navbar navbar-default navbar-static-top">
