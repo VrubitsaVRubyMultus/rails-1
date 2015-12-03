@@ -39,9 +39,9 @@
   <body>
   <% if user_signed_in? %>
     <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+    <%= link_with_icon "sign-out", destroy_user_session_path, method: :delete, title: 'Выйти'  %>
               <% if current_user && current_user.admin? %>
-                <%= link_to 'Админка', admin_welcome_index_path %>
+                <%= link_with_icon "key", admin_welcome_index_path, title: 'Админка' %>
               <% end %>
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>

@@ -39,8 +39,8 @@
   <body>
   <% if user_signed_in? %>
     <span>Здравствуйте, <%= current_user.email %></span>
-    <%= link_with_icon "user-times" , destroy_user_session_path, title: "Выход", :method => :delete %>
-    <%= link_with_icon "times-cirkle-o", welcome_index_path, title: "назад"%>   
+    <%= link_with_icon "sign-out" , destroy_user_session_path, title: "Выход", :method => :delete %>
+    <%= link_with_icon "times-circle", welcome_index_path, title: "назад"%>   
 <% else %>
     <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
 <% end %>

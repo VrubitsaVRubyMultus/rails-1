@@ -14,7 +14,7 @@
     <% @categories.each do |category| %>
       <tr>
         <td><%= category.head %></td>
-        <td><%= link_with_icon "pencil-square", edit_category_path(category) title: "edit" %></td>
+        <td><%= link_with_icon "pencil-square", edit_category_path(category), title: "edit" %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
