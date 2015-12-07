@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.published.all
   end
 
   # GET /posts/1
@@ -71,7 +71,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body)
+      params.require(:post).permit(:title, :body, :published, category_ids: [])
     end
     def check_author
       if !current_user.author_of?(@post) && !current_user.admin?

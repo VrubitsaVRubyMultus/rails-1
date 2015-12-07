@@ -16,7 +16,7 @@
 </p>
 <p>
   <strong>Категории:</strong>
-  <%= @post.categories_titles %>
+  <%= @post.categories_heads %>
 </p>
 
 <% unless @post.comments.empty? %>
@@ -24,7 +24,7 @@
     <h3>Комментарии</h3>
     <% @post.comments.each do |comment| %>
         <p><%= comment.body %></p>
-        <p><%= link_to "Удалить", [@post, comment], method: :delete %></p>
+        <p><%= link_to "Удалить", comment, method: :delete %></p>
     <% end %>
     <br>
 <% end %>

@@ -80,7 +80,12 @@
             <ul class="nav nav-list">
               <li class="nav-header"></li>
               <li><%= link_to "посты", posts_path  %></li>
-              <li><%= link_to "категории", categories_path  %></li>
+              <li><%= link_with_icon "caret-down", categories_path, title: "категории" %></li>
+              <div class="col-md-offset-1 col-md-10">
+                <% Category.all.each do |category| %>
+                  <li><%= link_to category.head, category %></li>
+                <% end %>
+              </div>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
